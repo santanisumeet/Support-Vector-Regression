@@ -1,23 +1,23 @@
-# SVR
+# Support Vector Regression
 
-# Importing the dataset
-dataset = read.csv('Position_Salaries.csv')
-dataset = dataset[2:3]
+# let's import the dataset
+dataset = read.csv('Position_Salaries.csv') #loading the dataset 
+dataset = dataset[2:3] #cleaning out unwanted / irrelevant columns  
 
 # Splitting the dataset into the Training set and Test set
-# # install.packages('caTools')
-# library(caTools)
-# set.seed(123)
-# split = sample.split(dataset$Salary, SplitRatio = 2/3)
-# training_set = subset(dataset, split == TRUE)
-# test_set = subset(dataset, split == FALSE)
+install.packages('caTools')
+library(caTools)
+set.seed(123)
+split = sample.split(dataset$Salary, SplitRatio = 2/3)
+training_set = subset(dataset, split == TRUE)
+test_set = subset(dataset, split == FALSE)
 
-# Feature Scaling
-# training_set = scale(training_set)
-# test_set = scale(test_set)
+Feature Scaling
+training_set = scale(training_set)
+test_set = scale(test_set)
 
 # Fitting SVR to the dataset
-# install.packages('e1071')
+install.packages('e1071')
 library(e1071)
 regressor = svm(formula = Salary ~ .,
                 data = dataset,
